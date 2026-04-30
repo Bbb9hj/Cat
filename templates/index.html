@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>محتوى هادف - متجر الخدمات الرقمية</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Arabic -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body { font-family: 'Cairo', sans-serif; background-color: #f4f7f9; -webkit-tap-highlight-color: transparent; }
+        .telegram-blue { background-color: #0088cc; }
+        .glass-card { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); border: 1px solid rgba(0,0,0,0.05); }
+        .nav-item.active { color: #0088cc; }
+        .nav-item.active i { color: #0088cc; transform: translateY(-2px); }
+        .category-header { border-right: 4px solid #0088cc; padding-right: 12px; }
+        .animate-in { animation: slideUp 0.4s ease-out forwards; }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .safe-area-bottom { padding-bottom: env(safe-area-inset-bottom); }
+    </style>
+</head>
+<body class="text-gray-900 pb-24">
+
+    <!-- Top Header -->
+    <header class="telegram-blue text-white pt-10 pb-16 px-6 rounded-b-[40px] shadow-xl relative overflow-hidden">
+        <div class="max-w-2xl mx-auto text-right relative z-10">
+            <div class="flex items-center justify-between mb-4">
+                <div class="p-2 bg-white/10 rounded-2xl"><i data-lucide="layout-grid" class="w-6 h-6"></i></div>
+                <div class="text-left text-[10px] bg-black/20 px-3 py-1 rounded-full">متصل الآن 🟢</div>
+            </div>
+            <h1 class="text-3xl font-bold mb-1">قناة محتوى هادف 🛒</h1>
+            <p class="text-blue-100/80 text-sm">أفضل الخدمات الرقمية والاشتراكات بأسعار خيالية</p>
+        </div>
+        <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-white/5 rounded-full blur-2xl"></div>
+    </header>
+
+    <!-- Global Search -->
+    <div class="max-w-2xl mx-auto -mt-8 px-4 mb-6">
+        <div class="relative group">
+            <input type="text" id="search-input" placeholder="ابحث عن اشتراك (ChatGPT, Canva...)" 
+                   class="w-full bg-white shadow-xl rounded-2xl py-4 pr-12 pl-4 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all border-none">
+            <i data-lucide="search" class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5"></i>
+        </div>
+        <div id="search-results" class="mt-4 space-y-2 hidden"></div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="max-w-2xl mx-auto px-4 space-y-8" id="main-view">
+        
+        <!-- Free Gifts Link -->
+        <section class="animate-in">
+            <a href="https://t.me/H_E_D_F/623" target="_blank" class="glass-card flex items-center p-4 rounded-2xl shadow-sm border-l-4 border-l-green-500 hover:bg-green-50 transition-all">
+                <div class="bg-green-100 text-green-600 p-2 rounded-lg ml-4"><i data-lucide="gift" class="w-5 h-5"></i></div>
+                <div class="flex-1">
+                    <h3 class="font-bold text-sm">الخدمات الإلكترونية المجانية</h3>
+                    <p class="text-[10px] text-gray-500">هدايا ومميزات متاحة للجميع مجاناً</p>
+                </div>
+                <i data-lucide="arrow-left" class="w-4 h-4 text-gray-300"></i>
+            </a>
+        </section>
+
+        <!-- Category: Telegram -->
+        <section id="cat-telegram" class="animate-in" style="animation-delay: 0.1s;">
+            <div class="flex items-center justify-between mb-4 px-2">
+                <h2 class="category-header text-lg font-bold text-gray-800">خدمات تيليجرام الاحترافية</h2>
+                <i data-lucide="send" class="w-5 h-5 text-blue-500"></i>
+            </div>
+            <div class="grid grid-cols-1 gap-3">
+                <div onclick="showDetails('premium')" class="glass-card p-4 rounded-2xl flex items-center justify-between cursor-pointer active:scale-95 transition-all">
+                    <div class="flex items-center gap-4">
+                        <div class="bg-indigo-100 text-indigo-600 p-3 rounded-xl"><i data-lucide="star" class="w-6 h-6"></i></div>
+                        <div><h4 class="font-bold text-sm">تيليجرام المميز</h4><p class="text-[10px] text-gray-400">Telegram Premium ⭐</p></div>
+                    </div>
+                    <i data-lucide="chevron-left" class="w-5 h-5 text-gray-300"></i>
+                </div>
+                <div onclick="showDetails('stars')" class="glass-card p-4 rounded-2xl flex items-center justify-between cursor-pointer active:scale-95 transition-all">
+                    <div class="flex items-center gap-4">
+                        <div class="bg-yellow-100 text-yellow-600 p-3 rounded-xl"><i data-lucide="sparkles" class="w-6 h-6"></i></div>
+                        <div><h4 class="font-bold text-sm">نجوم تيليجرام</h4><p class="text-[10px] text-gray-400">Telegram Stars 🌟</p></div>
+                    </div>
+                    <i data-lucide="chevron-left" class="w-5 h-5 text-gray-300"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- Category: AI -->
+        <section id="cat-ai" class="animate-in" style="animation-delay: 0.2s;">
+            <div class="flex items-center justify-between mb-4 px-2">
+                <h2 class="category-header text-lg font-bold text-gray-800">الذكاء الاصطناعي والتصميم</h2>
+                <i data-lucide="cpu" class="w-5 h-5 text-purple-500"></i>
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+                <div onclick="showDetails('chatgpt')" class="glass-card p-5 rounded-3xl text-center cursor-pointer active:scale-95 transition-all">
+                    <div class="bg-emerald-100 text-emerald-600 w-12 h-12 rounded-2xl flex items-center justify-center mx-auto mb-3"><i data-lucide="bot" class="w-6 h-6"></i></div>
+                    <h4 class="font-bold text-xs">ChatGPT Plus</h4>
+                </div>
+                <div onclick="showDetails('canva')" class="glass-card p-5 rounded-3xl text-center cursor-pointer active:scale-95 transition-all">
+                    <div class="bg-cyan-100 text-cyan-600 w-12 h-12 rounded-2xl flex items-center justify-center mx-auto mb-3"><i data-lucide="palette" class="w-6 h-6"></i></div>
+                    <h4 class="font-bold text-xs">Canva Pro</h4>
+                </div>
+            </div>
+        </section>
+
+        <!-- Payment Info -->
+        <section class="bg-gray-100 p-6 rounded-[30px] text-center animate-in" style="animation-delay: 0.3s;">
+            <h5 class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-4">طرق الدفع المدعومة</h5>
+            <div class="flex flex-wrap justify-center gap-2">
+                <span class="bg-white px-3 py-1.5 rounded-xl text-[10px] font-bold shadow-sm whitespace-nowrap">كريمي / النجم 🇾🇪</span>
+                <span class="bg-white px-3 py-1.5 rounded-xl text-[10px] font-bold shadow-sm whitespace-nowrap">زين كاش 🇮🇶</span>
+                <span class="bg-white px-3 py-1.5 rounded-xl text-[10px] font-bold shadow-sm whitespace-nowrap">USDT / TON 🌍</span>
+            </div>
+        </section>
+
+        <!-- Copyright -->
+        <footer class="text-center py-6 text-gray-400 text-[10px] pb-10">
+            <p>© 2026 محتوى هادف | جميع الحقوق محفوظة</p>
+            <p>موثق في قناة الضمان @trusthedf</p>
+        </footer>
+    </main>
+
+    <!-- Bottom Nav -->
+    <nav class="fixed bottom-0 left-0 w-full bg-white/80 backdrop-blur-xl border-t border-gray-100 px-8 py-4 flex items-center justify-between z-40 safe-area-bottom">
+        <button onclick="switchView('home')" id="nav-home" class="nav-item active flex flex-col items-center gap-1">
+            <i data-lucide="home" class="w-6 h-6"></i><span class="text-[9px] font-bold">الرئيسية</span>
+        </button>
+        <button onclick="scrollToCat('cat-telegram')" class="nav-item flex flex-col items-center gap-1">
+            <i data-lucide="shopping-bag" class="w-6 h-6"></i><span class="text-[9px] font-bold">الأقسام</span>
+        </button>
+        <button onclick="switchView('contact')" class="nav-item flex flex-col items-center gap-1">
+            <i data-lucide="message-circle" class="w-6 h-6"></i><span class="text-[9px] font-bold">الدعم</span>
+        </button>
+    </nav>
+
+    <!-- Modal Store Details -->
+    <div id="modal-backdrop" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 hidden flex items-end justify-center transition-all duration-300 opacity-0">
+        <div id="modal-content" class="bg-white w-full max-w-lg rounded-t-[40px] p-8 shadow-2xl transform translate-y-full transition-transform duration-300">
+            <div class="w-12 h-1.5 bg-gray-200 rounded-full mx-auto mb-6"></div>
+            <div id="modal-icon-bg" class="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                <i id="modal-icon" data-lucide="star" class="w-8 h-8"></i>
+            </div>
+            <h3 id="modal-title" class="text-xl font-bold text-center mb-2">اسم الخدمة</h3>
+            <p id="modal-description" class="text-gray-500 text-sm text-center mb-8 leading-relaxed px-4"></p>
+            <div class="space-y-3">
+                <a id="btn-details" href="#" target="_blank" class="block w-full py-4 text-center text-blue-500 font-bold bg-blue-50 rounded-2xl text-sm transition-all hidden">التفاصيل الكاملة</a>
+                <a id="btn-order" href="https://t.me/B_B_A_W" target="_blank" class="block w-full py-4 text-center text-white font-bold telegram-blue rounded-2xl text-sm shadow-lg shadow-blue-200">طلب تنفيذ فوري</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        const services = {
+            'premium': { title: 'تيليجرام المميز', desc: 'سرعة مضاعفة، رفع ملفات 4GB، تحويل الصوت لنص، وشارة التوثيق. تفعيل رسمي ومضمون.', icon: 'star', color: 'bg-indigo-600', link: 'https://t.me/H_E_D_F/5237' },
+            'stars': { title: 'نجوم تيليجرام', desc: 'شحن رصيد النجوم لدعم الصناع وشراء الهدايا والمنتجات داخل التطبيق بأقل الأسعار.', icon: 'sparkles', color: 'bg-yellow-500', link: 'https://t.me/H_E_D_F/3108' },
+            'chatgpt': { title: 'ChatGPT Plus', desc: 'اشتراك النسخة المدفوعة GPT-4o. ذكاء اصطناعي فائق وتحليل بيانات. وفر أكثر من 90%.', icon: 'bot', color: 'bg-emerald-600', link: 'https://t.me/H_E_D_F/5212' },
+            'canva': { title: 'Canva Pro', desc: 'وصول كامل لجميع قوالب التصميم والصور المدفوعة. صمم باحترافية وبدون قيود.', icon: 'palette', color: 'bg-cyan-600', link: 'https://t.me/H_E_D_F/5213' }
+        };
+
+        function showDetails(key) {
+            const s = services[key];
+            const bd = document.getElementById('modal-backdrop');
+            const ct = document.getElementById('modal-content');
+            
+            document.getElementById('modal-title').textContent = s.title;
+            document.getElementById('modal-description').textContent = s.desc;
+            document.getElementById('modal-icon').setAttribute('data-lucide', s.icon);
+            document.getElementById('modal-icon-bg').className = `w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg text-white ${s.color}`;
+            
+            const btnD = document.getElementById('btn-details');
+            if(s.link) { btnD.href = s.link; btnD.classList.remove('hidden'); } else { btnD.classList.add('hidden'); }
+
+            document.getElementById('btn-order').href = `https://t.me/B_B_A_W?text=${encodeURIComponent('أريد طلب خدمة: ' + s.title)}`;
+            
+            lucide.createIcons();
+            bd.classList.remove('hidden');
+            setTimeout(() => { bd.classList.add('opacity-100'); ct.classList.remove('translate-y-full'); }, 10);
+        }
+
+        function closeModal() {
+            const bd = document.getElementById('modal-backdrop');
+            const ct = document.getElementById('modal-content');
+            ct.classList.add('translate-y-full');
+            bd.classList.remove('opacity-100');
+            setTimeout(() => bd.classList.add('hidden'), 300);
+        }
+
+        function switchView(view) {
+            if(view === 'home') window.scrollTo({ top: 0, behavior: 'smooth' });
+            if(view === 'contact') window.open('https://t.me/B_B_A_W', '_blank');
+        }
+
+        function scrollToCat(id) {
+            const el = document.getElementById(id);
+            if(el) window.scrollTo({ top: el.offsetTop - 20, behavior: 'smooth' });
+        }
+
+        // Search Logic
+        document.getElementById('search-input').addEventListener('input', (e) => {
+            const q = e.target.value.toLowerCase();
+            const res = document.getElementById('search-results');
+            res.innerHTML = '';
+            if(!q) { res.classList.add('hidden'); return; }
+            res.classList.remove('hidden');
+            Object.entries(services).forEach(([k, s]) => {
+                if(s.title.toLowerCase().includes(q)) {
+                    const d = document.createElement('div');
+                    d.className = "bg-white p-4 rounded-2xl shadow-sm flex items-center justify-between cursor-pointer animate-in";
+                    d.onclick = () => showDetails(k);
+                    d.innerHTML = `
+                        <div class="flex items-center gap-3">
+                            <div class="${s.color} text-white p-1.5 rounded-lg"><i data-lucide="${s.icon}" class="w-4 h-4"></i></div>
+                            <span class="text-xs font-bold">${s.title}</span>
+                        </div><i data-lucide="chevron-left" class="w-4 h-4 text-gray-300"></i>`;
+                    res.appendChild(d);
+                }
+            });
+            lucide.createIcons();
+        });
+
+        document.getElementById('modal-backdrop').onclick = (e) => { if(e.target === e.currentTarget) closeModal(); };
+    </script>
+</body>
+</html>
